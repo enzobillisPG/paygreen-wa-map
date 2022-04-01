@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://play.workadventu.re/iframe_api.js"></script>
+    <script src="https://unpkg.com/blagues-api@2.1.0/dist/blagues-api.umd.js"></script>
+  </head>
+  <body>
+    <div>
+      <button onclick="generateJoke()">Je veux une blague</button>
+      <div style="color: white" id="blague"></div>
+      <div style="color: white" id="response"></div>
+    </div>
+  </body>
+</html>
+<script>
+  const blagues = new BlaguesAPI(
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjQ1MTU1NzExOTU5NDMzMjE2IiwibGltaXQiOjEwMCwia2V5IjoiMk1wMUdQZGxDRVZuTk1ONXlLU3ZrV1VneWNnRExCZ2IyUHdVdnRCWTJOYXN2U3M1b3UiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNC0wMVQwODoyNDoyNyswMDowMCIsImlhdCI6MTY0ODgwMTQ2N30.825QaSG7J5nSSipJ8ZhwbuJBaMyFCUg09I1FCJHGnGs"
+  );
+
+  const generateJoke = async () => {
+    const blague = await blagues.randomCategorized(blagues.categories.DARK);
+    document.querySelector("#blague").innerHTML = blague?.joke;
+    document.querySelector("#response").innerHTML = blague?.answer;
+  };
+</script>
