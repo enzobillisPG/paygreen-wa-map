@@ -1,4 +1,4 @@
 const menu = WA.ui.registerMenuCommand("Paygreen", {
-  iframe: "./customMenu.html",
+  iframe: "/src/assets/customMenu.html",
   allowApi: true,
 });
